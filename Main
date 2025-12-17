@@ -1,0 +1,22 @@
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        Restaurant restaurant = new Restaurant("Burger Galaxy");
+        System.out.println("===== " + restaurant.getName() + " =====");
+        printMenu(restaurant.getMenuSnapshot());
+    }
+
+    private static void printMenu(List<MenuItem> menu) {
+        String current = "";
+        for (int i = 0; i < menu.size(); i++) {
+            MenuItem it = menu.get(i);
+            if (!it.getCategory().equalsIgnoreCase(current)) {
+                current = it.getCategory();
+                System.out.println("\n[" + current + "]");
+            }
+            System.out.println((i + 1) + ") " + it.getDisplayName() + " - " +
+                    String.format("%.2f TL", it.getPrice()) + " | ID: " + it.getId());
+        }
+    }
+}
