@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Restaurant {
+    private final String name;
+    private final List<MenuItem> menu = new ArrayList<>();
+
+    public Restaurant(String name) {
+        this.name = name;
+        seedMenu();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<MenuItem> getMenuSnapshot() {
+        return Collections.unmodifiableList(new ArrayList<>(menu));
+    }
+
+    private void seedMenu() {
+        menu.add(new MenuItem("B01", "Classic Burger", 120, "Burgers"));
+        menu.add(new MenuItem("B02", "Double Cheese Burger", 150, "Burgers"));
+        menu.add(new MenuItem("B03", "Galaxy Spicy Burger", 165, "Burgers"));
+        menu.add(new MenuItem("B04", "BBQ Burger", 180, "Burgers"));
+        menu.add(new MenuItem("B05", "Chicken Crispy Burger", 125, "Burgers"));
+
+        menu.add(new MenuItem("A01", "French Fries", 40, "Appetizers"));
+        menu.add(new MenuItem("A02", "Curly Fries", 50, "Appetizers"));
+        menu.add(new MenuItem("A03", "Onion Rings", 45, "Appetizers"));
+        menu.add(new MenuItem("A04", "Cheese Fries", 60, "Appetizers"));
+
+        menu.add(new MenuItem("D01", "Coca Cola", 25, "Drinks"));
+        menu.add(new MenuItem("D02", "Sprite", 25, "Drinks"));
+        menu.add(new MenuItem("D03", "Iced Tea Lemon", 35, "Drinks"));
+        menu.add(new MenuItem("D04", "Water", 10, "Drinks"));
+
+        menu.add(new MenuItem("S01", "Chocolate Lava Cake", 55, "Desserts"));
+        menu.add(new MenuItem("S02", "Brownie", 45, "Desserts"));
+    }
+}
