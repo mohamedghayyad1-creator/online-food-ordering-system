@@ -1,4 +1,4 @@
-public class MenuItem implements Orderable {
+]public class MenuItem implements Orderable {
 
     private final String id;
     private String name;
@@ -21,13 +21,32 @@ public class MenuItem implements Orderable {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public double getPrice() {
         return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     @Override
     public String getCategory() {
         return category;
     }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    @Override
+    public String toString() {
+        return id + " | " + name + " | " +
+                String.format("%.2f TL", price) + " | " + category;
+    }
 }
+
